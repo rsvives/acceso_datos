@@ -11,7 +11,7 @@ public class Intro {
         System.out.println(miCarpeta.isDirectory());
         System.out.println(miCarpeta.isFile());
 
-        File miFichero = new File(ruta+"/afa.txt");
+        File miFichero = new File(ruta+"/afa formacion.txt");
         System.out.println("miFichero existe: " + miFichero.exists());
         System.out.println(miFichero.isDirectory());
         System.out.println(miFichero.isFile());
