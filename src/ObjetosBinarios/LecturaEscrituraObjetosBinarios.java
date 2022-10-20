@@ -21,7 +21,11 @@ public class LecturaEscrituraObjetosBinarios {
 
         try{
             escribirPersona(f,personasArray);
-            System.out.println(leerPersona(f).stream().toString());
+            ArrayList<Persona> personasLeidas =leerPersona(f);
+            for (Persona p : personasLeidas){
+//                System.out.println(p.toString());
+                System.out.printf("Nombre: %s, edad: %d \n", p.getNombre(),p.getEdad());
+            }
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -57,7 +61,7 @@ public class LecturaEscrituraObjetosBinarios {
                 personas.add((Persona) objin.readObject());
             }
         }catch (EOFException eof){
-            System.err.println("fin de archivo: " + eof.toString());
+            System.out.println("fin de archivo");
         }
         objin.close();
         fin.close();
@@ -65,6 +69,7 @@ public class LecturaEscrituraObjetosBinarios {
     }
 
     public static ArrayList<Persona> crearMultiplesPersonas(HashMap<String, Integer> hmap){
+        Persona persona;
         ArrayList<Persona> personasArray = new ArrayList<>();
         for(String nombre : hmap.keySet()){
             persona = new Persona(nombre,hmap.get(nombre));
